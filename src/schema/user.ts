@@ -6,3 +6,16 @@ export const createUserSchema = z.object({
 });
 
 export type CreateUserInput = z.TypeOf<typeof createUserSchema>;
+
+export const requestOTPSchema = z.object({
+    email: z.string().email(),
+    redirect: z.string().default('/')
+});
+
+export type RequestOTPInput = z.TypeOf<typeof requestOTPSchema>;
+
+export const verifyOTPSchema = z.object({
+    hash: z.string(),
+});
+
+export type VerifyOTPInput = z.TypeOf<typeof verifyOTPSchema>;

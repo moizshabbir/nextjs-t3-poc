@@ -1,13 +1,10 @@
-import { baseProcedure, router } from '../trpc';
-
-// export const appRouter = router({
-//   todo: todoRouter,
-// });
+import { router } from '../trpc';
+import { postRouter } from './post';
+import { userRouter } from './user';
 
 export const appRouter = router({
-    hello: baseProcedure.query(({ctx}) => {
-        return 'Hello from trpc server'
-    })
+    user: userRouter,
+    post: postRouter
 });
 
 export type AppRouter = typeof appRouter;
